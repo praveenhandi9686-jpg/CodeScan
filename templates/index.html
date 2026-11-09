@@ -1,0 +1,38 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CodeScan</title><link rel="stylesheet" href="/static/css/style.css"></head><body class="auth-mode">
+<div id="fx" aria-hidden="true"><div class="orb o1"></div><div class="orb o2"></div><div class="orb o3"></div><div class="grid3d"></div><canvas id="net"></canvas><div class="scan"></div></div>
+<header><button id="menu" class="hamb" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><i></i><i></i><i></i></button><div class="brand-link" data-v="new" role="button" tabindex="0" title="Go to New Review"><h1>CodeScan</h1><small>AI Code Reviewer &amp; Bug Detection System</small></div><button id="dbgpill" class="pill" aria-pressed="true"></button></header>
+<div id="scrim" hidden></div>
+<aside id="drawer" aria-label="Main menu"><div class="dhead"><strong>CodeScan</strong><button id="dclose" aria-label="Close menu">&#10005;</button></div>
+<nav id="nav" hidden>
+<button id="who" class="who" data-v="prof" title="My profile"></button>
+<button data-v="dash" class="dashbtn">&#9638; Dashboard</button>
+<button data-v="new">&#9998; New Review</button>
+<button data-v="hist">&#9719; Review History</button>
+<button data-v="set">&#9881; Settings</button>
+<div class="spacer"></div>
+<button id="theme" aria-label="Toggle light/dark theme">&#9680; Theme</button>
+<button id="logout">&#9211; Logout</button>
+</nav></aside>
+<main>
+<section id="auth"><div class="auth-wrap"><aside class="brand"><div class="logo" aria-hidden="true">&lt;/&gt;</div><div class="brand-name">CodeScan</div><p class="tag">AI Code Reviewer &amp; Bug Detection System</p>
+<ul><li>🛡️ Security &amp; bug detection on your real code</li><li>🤖 AI-powered review and code generation</li><li>🌐 17 languages, instant scoring and reports</li></ul></aside>
+<form id="authform"><h2 id="authtitle">Login</h2><p id="authsub" class="sub"></p>
+<label data-m="register">Username<input id="username" autocomplete="username"></label>
+<label id="idl" data-m="login register">Email or username<input id="email" type="text" autocomplete="username"></label>
+<label data-m="login register">Password<input id="password" type="password" autocomplete="current-password"></label>
+<label data-m="register">Confirm password<input id="confirm" type="password" autocomplete="new-password"></label>
+<label class="inline" data-m="login register"><input type="checkbox" id="showpw"> Show password</label>
+<p id="autherr" class="err" role="alert"></p><button id="submit" class="primary">Login</button>
+<div class="alts" data-m="login"><button type="button" class="link" data-go="register">Create account</button></div>
+<div class="alts" data-m="register"><button type="button" class="link" data-go="login">&larr; Back to login</button></div>
+</form></div></section>
+<section id="dash" hidden><h2>Dashboard</h2><div id="dashbox"></div></section>
+<section id="new" hidden><div class="bar"><label>Programming Language<select id="lang"></select></label>
+<button id="run" class="primary">Review Code</button><button id="clear">Clear</button><button id="import" type="button">Import file</button><input type="file" id="file" hidden accept=".py,.js,.jsx,.mjs,.ts,.tsx,.java,.c,.h,.cpp,.cc,.hpp,.cs,.go,.php,.rb,.rs,.sh,.kt,.swift,.sql,.html,.htm,.css,.txt"><span id="counts">0 lines · 0 chars</span></div>
+<textarea id="code" spellcheck="false" aria-label="Source code" placeholder="Paste or type source code here"></textarea>
+<p id="status" role="status"></p><div id="dbgtools"></div><div id="result"></div><div id="dbgout"></div></section>
+<section id="hist" hidden><button class="back" data-v="dash">&larr; Dashboard</button><h2>Review History</h2><div id="histlist"></div></section>
+<section id="set" hidden><button class="back" data-v="dash">&larr; Dashboard</button><h2>Settings</h2><div id="setbox"></div></section>
+<section id="prof" hidden><button class="back" data-v="dash">&larr; Dashboard</button><h2>My Profile</h2><div id="profbox"></div></section>
+</main><div id="loader" hidden><div class="ring"><span>&lt;/&gt;</span></div><h3 id="ltitle"></h3><p id="lsub"></p><div class="lbar"><i></i></div></div><div id="toast" role="status"></div><script src="/static/js/fx.js"></script><script src="/static/js/app.js"></script></body></html>

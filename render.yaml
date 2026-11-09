@@ -1,0 +1,24 @@
+# Render Blueprint: Dashboard > New > Blueprint > pick this repo. Creates the web service AND a Postgres database.
+databases:
+  - name: codescan-db
+    plan: free            # NOTE: Render deletes free Postgres 30 days after creation. See README for alternatives.
+    databaseName: codescan
+    user: codescan
+
+services:
+  - type: web
+    name: codescan
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app --workers 1 --threads 4 --timeout 120 --bind 0.0.0.0:$PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        fromDatabase:
+          name: codescan-db
+          property: connectionString
